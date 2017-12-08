@@ -1,0 +1,21 @@
+package br.aluno.drogaria.util;
+
+import org.hibernate.SessionFactory;
+
+public class HibernateUtil {
+	private static SessionFactory fabricaDeSessoes;
+	
+	public static SessionFactory getFabricaDeSessoes() {
+		return fabricaDeSessoes;
+		
+	}
+	public static SessionFactory criarFabricaDeSessoes() {
+		try {
+			
+		} catch (Throwable ex) {
+			System.err.print("A fabrica de sessões não foir criada "+ex);
+			throw new  ExceptionInInitializerError(ex);
+		}
+	}
+
+}

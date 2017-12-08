@@ -1,0 +1,5 @@
+package br.aluno.drogaria.util;
+
+public class HibernateUtil {
+
+}
