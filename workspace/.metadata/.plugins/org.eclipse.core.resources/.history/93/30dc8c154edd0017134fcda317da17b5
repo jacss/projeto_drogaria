@@ -1,0 +1,8 @@
+package br.aluno.drogaria.domain;
+
+public class Estado extends GenericDomain {
+	private String sigla;
+	private String nome;
+	
+
+}

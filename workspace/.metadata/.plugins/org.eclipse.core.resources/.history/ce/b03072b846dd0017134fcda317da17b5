@@ -1,0 +1,10 @@
+package br.aluno.drogaria.util;
+
+public class HibernateUtilTest {
+	
+	public void connect() {
+		HibernateUtil.getSessionFactory();
+		HibernateUtil.getSessionFactory().close();
+	}
+
+}

@@ -1,0 +1,24 @@
+package br.aluno.drogaria.util;
+
+import org.hibernate.SessionFactory;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.cfg.Configuration;
+import org.hibernate.service.ServiceRegistry;
+
+public class HibernateUtil {
+	public static SessionFactory fabricaDeSessoes;
+	
+	public static SessionFactory getFabricaDeSessoes() {
+		return fabricaDeSessoes;
+	}
+	public static criarFabricaDeSessoes() {
+		try {
+			
+		} catch (Throwable ex) {
+			System.err.println("Não foi possivel criar a Fabrica de Sessão"+ ex);
+			throw new ExceptionInInitializerError(ex);
+		}
+	}
+	
+	
+}

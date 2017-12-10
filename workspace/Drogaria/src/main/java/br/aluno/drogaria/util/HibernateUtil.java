@@ -6,29 +6,26 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 
 public class HibernateUtil {
-	private static final SessionFactory sessionFactory = buildSessionFactory();
+	private static SessionFactory fabricaDeSessoes = criarFabricaDeSessoes();
 
-	private static SessionFactory buildSessionFactory() {
-		try {
-			Configuration configuration = new Configuration();
-			configuration.configure();
-
-			ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
-					.applySettings(configuration.getProperties()).build();
-
-			SessionFactory sessionFactory = configuration.buildSessionFactory(serviceRegistry);
-
-			return sessionFactory;
-
-		} catch (Throwable e) {
-			System.err.println("Falha ao tentar criar o SesssionFactory" + e);
-			throw new ExceptionInInitializerError(e);
-		}
-
+	public static SessionFactory getFabricaDeSessoes() {
+		return fabricaDeSessoes;
 	}
-	public static SessionFactory getSessionFactory() {
-		
-		return sessionFactory;
+
+	private static SessionFactory criarFabricaDeSessoes() {
+		try {
+			Configuration configuracao = new Configuration().configure();
+
+			ServiceRegistry registro = new StandardServiceRegistryBuilder().applySettings(configuracao.getProperties())
+					.build();
+
+			SessionFactory fabrica = configuracao.buildSessionFactory(registro);
+			return fabrica;
+
+		} catch (Throwable ex) {
+			System.err.println("Não foi possivel criar a Fabrica de Sessão" + ex);
+			throw new ExceptionInInitializerError(ex);
+		}
 	}
 
 }
